@@ -16,7 +16,7 @@ jobs:
           github-token: ${{ secrets.DC_PAT }}
           script: |
             github.rest.actions.createWorkflowDispatch({
-              owner: 'TsayAdobe',
+              owner: 'adobecom',
               repo: 'dc',
               workflow_id: 'test-milo.yml',
               ref: 'ghatest',
