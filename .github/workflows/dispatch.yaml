@@ -10,7 +10,14 @@ jobs:
     name: Dispatch DC workflow
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger DC Workflow
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            src:
+              - 'libs/**'    
+      - if: steps.changes.outputs.src == 'true'
+        name: Trigger DC Workflow
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.DC_PAT }}
