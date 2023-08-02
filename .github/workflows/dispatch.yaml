@@ -1,0 +1,23 @@
+name: Dispatch workflows
+
+on:
+  push:
+    branches:
+      - ghatest
+
+jobs:
+  dispatch-dc:
+    name: Dispatch DC workflow
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger DC Workflow
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.DC_PAT }}
+          script: |
+            github.rest.actions.createWorkflowDispatch({
+              owner: 'TsayAdobe',
+              repo: 'dc',
+              workflow_id: 'test-milo.yml',
+              ref: 'ghatest',
+            }) 
