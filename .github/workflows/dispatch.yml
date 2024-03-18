@@ -30,7 +30,7 @@ jobs:
               owner: 'adobecom',
               repo: 'dc',
               workflow_id: 'test-milo.yml',
-              ref: 'main',
+              ref: 'MWPW-143822',
               inputs: {
                 miloBranch: '${{ github.ref_name }}'
               },              
