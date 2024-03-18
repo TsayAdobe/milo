@@ -32,6 +32,6 @@ jobs:
               workflow_id: 'test-milo.yml',
               ref: 'main',
               inputs: {
-                miloBranch: ${{ github.ref_name }}
+                miloBranch: '${{ github.ref_name }}'
               },              
             }) 
